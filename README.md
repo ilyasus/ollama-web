@@ -1,4 +1,4 @@
-Docker compose file for [Ollama] (https://github.com/ollama/ollama) and [UI app] (https://github.com/jakobhoeg/nextjs-ollama-llm-ui/)
+Docker compose file for [Ollama](https://github.com/ollama/ollama) and [UI app](https://github.com/jakobhoeg/nextjs-ollama-llm-ui/)
 
 Forwarding an Nidia GPU into a container is possible after installing the toolkit.
 
