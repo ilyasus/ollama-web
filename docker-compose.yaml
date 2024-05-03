@@ -1,0 +1,32 @@
+version: "3"
+services:
+  ollama:
+    container_name: ollama
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - ./ollama:/root/.ollama
+    devices:
+        - /dev/kfd
+        - /dev/dri
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+
+  web:
+    build: 
+      dockerfile: Dockerfile
+    container_name: web
+    restart: unless-stopped
+    environment:
+        - NEXT_PUBLIC_OLLAMA_URL=http://ollama:11434
+    ports:
+      - 3001:3000      
+
+volumes:
+  ollama:
