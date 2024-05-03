@@ -6,9 +6,11 @@ services:
     restart: unless-stopped
     volumes:
       - ./ollama:/root/.ollama
+    #forward AMD GPU
     devices:
         - /dev/kfd
         - /dev/dri
+    #forward Nvidia GPU
     deploy:
       resources:
         reservations:
